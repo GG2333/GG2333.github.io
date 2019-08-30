@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Android FileProvider">
+<meta name="description" content="对于面向 Android 7.0 的应用，Android 框架执行的 StrictMode API 政策禁止在您的应用外部公开 file:// URI。如果一项包含文件 URI 的 intent 离开您的应用，则应用出现故障，并出现 FileUriExposedException 异常。 要在应用间共享文件，您应发送一项 content:// URI，并授予 URI 临时访问权限。进行此授权的最简">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android FileProvider">
+<meta property="og:title" content="Android 文件共享">
 <meta property="og:url" content="http://yoursite.com/2019/08/30/android-file-provider/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Android FileProvider">
+<meta property="og:description" content="对于面向 Android 7.0 的应用，Android 框架执行的 StrictMode API 政策禁止在您的应用外部公开 file:// URI。如果一项包含文件 URI 的 intent 离开您的应用，则应用出现故障，并出现 FileUriExposedException 异常。 要在应用间共享文件，您应发送一项 content:// URI，并授予 URI 临时访问权限。进行此授权的最简">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-30T05:45:22.104Z">
+<meta property="og:updated_time" content="2019-08-30T09:08:47.704Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android FileProvider">
-<meta name="twitter:description" content="Android FileProvider">
+<meta name="twitter:title" content="Android 文件共享">
+<meta name="twitter:description" content="对于面向 Android 7.0 的应用，Android 框架执行的 StrictMode API 政策禁止在您的应用外部公开 file:// URI。如果一项包含文件 URI 的 intent 离开您的应用，则应用出现故障，并出现 FileUriExposedException 异常。 要在应用间共享文件，您应发送一项 content:// URI，并授予 URI 临时访问权限。进行此授权的最简">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <title>Android FileProvider | Hexo</title>
+  <title>Android 文件共享 | Hexo</title>
   
 
 
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Android FileProvider</h1>
+          <h1 class="post-title" itemprop="name headline">Android 文件共享</h1>
         
 
         <div class="post-meta">
@@ -299,9 +299,17 @@
       
 
       
-        <a id="more"></a>
+        <p>对于面向 Android 7.0 的应用，Android 框架执行的 StrictMode API 政策禁止在您的应用外部公开 file:// URI。如果一项包含文件 URI 的 intent 离开您的应用，则应用出现故障，并出现 FileUriExposedException 异常。</p>
+<p>要在应用间共享文件，您应发送一项 content:// URI，并授予 URI 临时访问权限。进行此授权的最简单方式是使用 FileProvider 类。如需了解有关权限和共享文件的详细信息，请参阅共享文件。</p>
+<a id="more"></a>
 
-<h1 id="Android-FileProvider"><a href="#Android-FileProvider" class="headerlink" title="Android FileProvider"></a>Android FileProvider</h1>
+<h1 id="FileProvider"><a href="#FileProvider" class="headerlink" title="FileProvider"></a>FileProvider</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    package=&quot;com.example.myapp&quot;&gt;</span><br><span class="line">    &lt;application</span><br><span class="line">        ...&gt;</span><br><span class="line">        &lt;provider</span><br><span class="line">            android:name=&quot;android.support.v4.content.FileProvider&quot;</span><br><span class="line">            android:authorities=&quot;com.example.myapp.fileprovider&quot;</span><br><span class="line">            android:grantUriPermissions=&quot;true&quot;</span><br><span class="line">            android:exported=&quot;false&quot;&gt;</span><br><span class="line">            &lt;meta-data</span><br><span class="line">                android:name=&quot;android.support.FILE_PROVIDER_PATHS&quot;</span><br><span class="line">                android:resource=&quot;@xml/filepaths&quot; /&gt;</span><br><span class="line">        &lt;/provider&gt;</span><br><span class="line">        ...</span><br><span class="line">    &lt;/application&gt;</span><br><span class="line">&lt;/manifest&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Paths"><a href="#Paths" class="headerlink" title="Paths"></a>Paths</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;paths&gt;</span><br><span class="line">	&lt;files-path</span><br><span class="line">		name=&quot;files-path&quot;</span><br><span class="line">		path=&quot;files/&quot; /&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;cache-path</span><br><span class="line">		name=&quot;cache-path&quot;</span><br><span class="line">		path=&quot;cache/&quot; /&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;external-path</span><br><span class="line">		name=&quot;external-path&quot;</span><br><span class="line">		path=&quot;peiwan/&quot; /&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;external-files-path</span><br><span class="line">		name=&quot;external-files-path&quot;</span><br><span class="line">		path=&quot;.&quot; /&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;external-cache-path</span><br><span class="line">		name=&quot;external-cache-path&quot;</span><br><span class="line">		path=&quot;.&quot; /&gt;</span><br><span class="line">&lt;/paths&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Share"><a href="#Share" class="headerlink" title="Share"></a>Share</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">private void newShareMethod(String filepath) &#123;</span><br><span class="line">        if (TextUtils.isEmpty(filepath)) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        File file = new File(filepath);</span><br><span class="line">        Intent intent = new Intent(Intent.ACTION_VIEW);</span><br><span class="line"></span><br><span class="line">        if (Build.VERSION.SDK_INT &gt;= 24) &#123;</span><br><span class="line">            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);</span><br><span class="line">            Uri uri = FileProvider.getUriForFile(this, NewConfig.AUTHORITY, file);</span><br><span class="line">            String type = getContentResolver().getType(uri);</span><br><span class="line">            intent.setDataAndType(uri, type);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">            Uri uri = Uri.fromFile(file);</span><br><span class="line">            String type = getContentResolver().getType(uri);</span><br><span class="line">            intent.setDataAndType(uri, type);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        startActivity(Intent.createChooser(intent, &quot;发送&quot;));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     
@@ -447,7 +455,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-FileProvider"><span class="nav-number">1.</span> <span class="nav-text">Android FileProvider</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FileProvider"><span class="nav-number">1.</span> <span class="nav-text">FileProvider</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Paths"><span class="nav-number">2.</span> <span class="nav-text">Paths</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Share"><span class="nav-number">3.</span> <span class="nav-text">Share</span></a></li></ol></div>
             
 
           </div>
