@@ -82,14 +82,14 @@
 <meta name="description" content="腾讯Bugly，为移动开发者提供专业的异常上报和运营统计，帮助开发者快速发现并解决异常，同时掌握产品运营动态，及时跟进用户反馈。">
 <meta name="keywords" content="app, android, flutter, java, spring, docker, kubenetes">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一种愉悦的开发方式">
+<meta property="og:title" content="Bugly">
 <meta property="og:url" content="http://yoursite.com/2019/10/23/bugly/index.html">
 <meta property="og:site_name" content="捡瓶盖的大叔">
 <meta property="og:description" content="腾讯Bugly，为移动开发者提供专业的异常上报和运营统计，帮助开发者快速发现并解决异常，同时掌握产品运营动态，及时跟进用户反馈。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-24T00:42:54.691Z">
+<meta property="og:updated_time" content="2019-10-30T07:34:08.878Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一种愉悦的开发方式">
+<meta name="twitter:title" content="Bugly">
 <meta name="twitter:description" content="腾讯Bugly，为移动开发者提供专业的异常上报和运营统计，帮助开发者快速发现并解决异常，同时掌握产品运营动态，及时跟进用户反馈。">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>一种愉悦的开发方式 | 捡瓶盖的大叔</title>
+  <title>Bugly | 捡瓶盖的大叔</title>
   
 
 
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一种愉悦的开发方式</h1>
+          <h1 class="post-title" itemprop="name headline">Bugly</h1>
         
 
         <div class="post-meta">
@@ -345,11 +345,11 @@
 <li><p>配置FileProvider</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;provider</span><br><span class="line">	android:name=&quot;android.support.v4.content.FileProvider&quot;</span><br><span class="line">	android:authorities=&quot;com.beiben.ebeiben.fileprovider&quot;</span><br><span class="line">	android:exported=&quot;false&quot;</span><br><span class="line">	android:grantUriPermissions=&quot;true&quot;&gt;</span><br><span class="line">	&lt;meta-data</span><br><span class="line">		android:name=&quot;android.support.FILE_PROVIDER_PATHS&quot;</span><br><span class="line">		android:resource=&quot;@xml/file_paths_public&quot; /&gt;</span><br><span class="line">&lt;/provider&gt;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
 <p>在res目录新建xml文件夹，创建provider_paths.xml文件如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;paths&gt;</span><br><span class="line">	&lt;!-- /storage/emulated/0/Download/com.bugly.upgrade.demo/.beta/apk--&gt;</span><br><span class="line">	&lt;external-path</span><br><span class="line">		name=&quot;beta_external_path&quot;</span><br><span class="line">		path=&quot;Download/&quot; /&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;!--/storage/emulated/0/Android/data/com.bugly.upgrade.demo/files/apk/--&gt;</span><br><span class="line">	&lt;external-path</span><br><span class="line">		name=&quot;beta_external_files_path&quot;</span><br><span class="line">		path=&quot;Android/data/&quot; /&gt;</span><br><span class="line">&lt;/paths&gt;</span><br></pre></td></tr></table></figure>
 
+</li>
+</ol>
 <h2 id="完整接入流程"><a href="#完整接入流程" class="headerlink" title="完整接入流程"></a>完整接入流程</h2><ul>
 <li>打基准包安装并上报联网（注：填写唯一的tinkerId）</li>
 <li>对基准包的bug修复（可以是Java代码变更，资源的变更）</li>
@@ -394,6 +394,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/25/kubernetes/" rel="prev" title="kubernetes">
+                kubernetes <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -470,7 +474,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
